@@ -1,5 +1,9 @@
-<%= form_for @artist, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
+<%= simple_form_for @artist, :html => { :class => 'form-horizontal' } do |f| %>
+
+  <%= f.input :name %>
+  <%= f.input :date_started, as: :date, start_year: 1900, end_year: Date.today.year %>
+  <%= f.input :n_of_participants %>
+  <!-- <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :name, :class => 'text_field' %>
@@ -16,7 +20,7 @@
     <div class="controls">
       <%= f.text_field :n_of_participants, :class => 'text_field' %>
     </div>
-  </div>
+  </div> -->
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

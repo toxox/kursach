@@ -20,11 +20,12 @@
 </div>
 
 <div class="container">
-  <% flash.each do |name, msg| %>
+<!--   <% flash.each do |name, msg| %>
     <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
       <%= msg %>
     </div>
-  <% end %>
+  <% end %> -->
+  <%= bootstrap_flash %>
   <div class="span9">
     <%= yield %>
   </div>

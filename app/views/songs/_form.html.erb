@@ -1,5 +1,9 @@
-<%= form_for @song, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
+<%= simple_form_for @song, :html => { :class => 'form-horizontal' } do |f| %>
+
+  <%= f.input :album_id %>
+  <%= f.input :song_title %>
+  <%= f.input :song_duration %>
+  <!-- <div class="control-group">
     <%= f.label :album_id, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :album_id, :class => 'text_field' %>
@@ -16,7 +20,7 @@
     <div class="controls">
       <%= f.text_field :song_duration, :class => 'text_field' %>
     </div>
-  </div>
+  </div> -->
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
