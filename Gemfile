@@ -44,3 +44,5 @@ end
 gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
+
+gem 'validates_timeliness'
