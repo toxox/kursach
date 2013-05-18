@@ -1,25 +1,20 @@
-<%= form_for(@concert) do |f| %>
-  <% if @concert.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@concert.errors.count, "error") %> prohibited this concert from being saved:</h2>
-
-      <ul>
-      <% @concert.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @concert, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :location, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :location, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :date_held, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :date_held, :class => 'text_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
-  </div>
-  <div class="field">
-    <%= f.label :date_held %><br />
-    <%= f.date_select :date_held %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                concerts_path, :class => 'btn' %>
   </div>
 <% end %>
