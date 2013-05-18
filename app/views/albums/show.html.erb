@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @album.artist_id %>
+</p>
+
+<p>
+  <strong>Album title:</strong>
+  <%= @album.album_title %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @album.genre_id %>
+</p>
+
+<p>
+  <strong>Producer:</strong>
+  <%= @album.producer_id %>
+</p>
+
+<p>
+  <strong>Date released:</strong>
+  <%= @album.date_released %>
+</p>
+
+<p>
+  <strong>Label:</strong>
+  <%= @album.label_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to 'Back', albums_path %>

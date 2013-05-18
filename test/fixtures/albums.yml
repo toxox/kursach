@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  artist_id: 1
+  album_title: MyString
+  genre_id: 1
+  producer_id: 1
+  date_released: 2013-05-18
+  label_id: 1
+
+two:
+  artist_id: 1
+  album_title: MyString
+  genre_id: 1
+  producer_id: 1
+  date_released: 2013-05-18
+  label_id: 1
