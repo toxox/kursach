@@ -40,3 +40,7 @@ gem 'jbuilder', '~> 1.0.1'
 group :development do
   gem 'rails-erd'
 end
+
+gem "therubyracer"
+gem "less-rails"
+gem "twitter-bootstrap-rails"
