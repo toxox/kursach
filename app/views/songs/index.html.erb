@@ -6,10 +6,9 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:album_id) %></th>
       <th><%= model_class.human_attribute_name(:song_title) %></th>
+      <th><%= model_class.human_attribute_name(:album_id) %></th>
       <th><%= model_class.human_attribute_name(:song_duration) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -17,10 +16,9 @@
     <% @songs.each do |song| %>
       <tr>
         <td><%= link_to song.id, song_path(song) %></td>
-        <td><%= song.album_id %></td>
         <td><%= song.song_title %></td>
+        <td><%= song.album.album_title %></td>
         <td><%= song.song_duration %></td>
-        <td><%=l song.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_song_path(song), :class => 'btn btn-mini' %>

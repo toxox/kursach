@@ -12,7 +12,6 @@
       <th><%= model_class.human_attribute_name(:producer_id) %></th>
       <th><%= model_class.human_attribute_name(:date_released) %></th>
       <th><%= model_class.human_attribute_name(:label_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -20,13 +19,12 @@
     <% @albums.each do |album| %>
       <tr>
         <td><%= link_to album.id, album_path(album) %></td>
-        <td><%= album.artist_id %></td>
-        <td><%= album.album_title %></td>
-        <td><%= album.genre_id %></td>
-        <td><%= album.producer_id %></td>
+        <td><%= album.artist.name %></td>
+        <td><%= link_to album.album_title, album_path(album) %></td>
+        <td><%= @album_genre%></td>
+        <td><%= @album_producer %></td>
         <td><%= album.date_released %></td>
-        <td><%= album.label_id %></td>
-        <td><%=l album.created_at %></td>
+        <td><%= @album_label %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_album_path(album), :class => 'btn btn-mini' %>

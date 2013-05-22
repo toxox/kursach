@@ -5,6 +5,11 @@ class AlbumsController < ApplicationController
   # GET /albums.json
   def index
     @albums = Album.all
+    @albums.each do |album|
+      @album_genre = Genre.find(album.genre_id).name
+      @album_producer = Producer.find(album.producer_id).name
+      @album_label = Label.find(album.producer_id).name
+    end
   end
 
   # GET /albums/1

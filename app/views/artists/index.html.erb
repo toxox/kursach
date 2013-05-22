@@ -9,7 +9,6 @@
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:date_started) %></th>
       <th><%= model_class.human_attribute_name(:n_of_participants) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -17,10 +16,9 @@
     <% @artists.each do |artist| %>
       <tr>
         <td><%= link_to artist.id, artist_path(artist) %></td>
-        <td><%= artist.name %></td>
+        <td><%= link_to artist.name, artist_path(artist) %></td>
         <td><%= artist.date_started %></td>
         <td><%= artist.n_of_participants %></td>
-        <td><%=l artist.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_artist_path(artist), :class => 'btn btn-mini' %>

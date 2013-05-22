@@ -8,7 +8,6 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:artist_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -17,8 +16,7 @@
       <tr>
         <td><%= link_to manager.id, manager_path(manager) %></td>
         <td><%= manager.name %></td>
-        <td><%= manager.artist_id %></td>
-        <td><%=l manager.created_at %></td>
+        <td><%= manager.artist.name %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_manager_path(manager), :class => 'btn btn-mini' %>
