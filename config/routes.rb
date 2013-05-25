@@ -1,4 +1,7 @@
 Kursach::Application.routes.draw do
+  devise_for :admins, path: '' ,path_names: { sign_in: "admin", sign_out: "logout" }
+  devise_for :users, path: '', path_names: { sign_in: "login",
+   sign_out: "logout", sign_up: "register"}
   resources :songs
 
   resources :albums
@@ -14,6 +17,8 @@ Kursach::Application.routes.draw do
   resources :labels
 
   resources :producers
+
+  root to: 'artists#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

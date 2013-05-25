@@ -50,3 +50,5 @@ gem "twitter-bootstrap-rails"
 gem 'validates_timeliness'
 
 gem 'simple_form'
+
+gem 'devise', github: 'plataformatec/devise', branch: 'rails4'

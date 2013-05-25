@@ -16,6 +16,24 @@
       <li><a href="#">Link</a></li>
       <li><a href="#">Link</a></li>
     </ul>
+    <div class="navbar-outer pull-right">
+      <ul class="nav">
+        <% if admin_signed_in? %>
+          <li><%= link_to "Log Out", destroy_admin_session_path, method: :delete %></li>
+        <% end %>
+
+        <% if user_signed_in? %>
+          <li><%= link_to "Sign up", edit_user_registration_path %></li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <% unless admin_signed_in? %>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li><%= link_to "Login", new_user_session_path%></li>
+          <% end %>
+        <% end %>
+      </ul>
+
+    </div>
   </div>
 </div>
 
@@ -28,11 +46,6 @@
   <%= bootstrap_flash %>
   <div class="span9">
     <%= yield %>
-    <% flash.each do |name, msg| %>
-    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-      <%= msg %>
-    </div>
-  <% end %>
   </div>
 </div>
 
