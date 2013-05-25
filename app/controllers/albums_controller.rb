@@ -8,7 +8,7 @@ class AlbumsController < ApplicationController
     @albums.each do |album|
       @album_genre = Genre.find(album.genre_id).name
       @album_producer = Producer.find(album.producer_id).name
-      @album_label = Label.find(album.producer_id).name
+      @album_label = Label.find(album.label_id).name
     end
   end
 
