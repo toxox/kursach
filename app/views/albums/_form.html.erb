@@ -11,6 +11,7 @@
    end_year: Date.today.year, input_html: { class: 'chzn-select'} %>
   <%= f.input :label_id, collection: Label.order(:name), required: true,
    label: "Label", label_method: :name, input_html: { class: 'chzn-select'} %>
+   <%= f.input :cover %>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
