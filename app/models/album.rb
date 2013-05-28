@@ -5,8 +5,8 @@ class Album < ActiveRecord::Base
   has_one :label
   has_many :songs, dependent: :destroy
 
-  has_attached_file :cover, styles: { normal: "300x300>", thumb: "34x34>" },
-    default_url: ActionController::Base.helpers.asset_path('missing.png')
+  has_attached_file :cover, styles: { normal: "300x300>", thumb: "50x50>" },
+  default_url: ':style/missing.png'
 
   validates :artist_id, :album_title, :genre_id, :producer_id, :date_released,
   :label_id, presence: true

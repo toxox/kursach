@@ -4,8 +4,8 @@ class Artist < ActiveRecord::Base
 
   has_many :albums, dependent: :destroy
 
-  has_attached_file :photo, styles: { normal: "300x300>", thumb: "34x34>" },
-  default_url: ActionController::Base.helpers.asset_path('missing.png')
+  has_attached_file :photo, styles: { normal: "300x300>", thumb: "50x50>" },
+  default_url: ':style/missing.png'
 
   validates :name, :date_started, :n_of_participants, presence: true
   validates :name, length: { maximum: 30 }

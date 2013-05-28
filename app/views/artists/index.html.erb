@@ -8,6 +8,7 @@
       <% if admin_signed_in? %>
         <th><%= model_class.human_attribute_name(:id) %></th>
       <% end %>
+      <th><%= model_class.human_attribute_name(:photo) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:date_started) %></th>
       <th><%= model_class.human_attribute_name(:n_of_participants) %></th>
@@ -23,6 +24,8 @@
           <td><%= link_to artist.id, artist_path(artist) %></td>
         <% end %>
 
+        <td><%= link_to (image_tag artist.photo.url(:thumb)),
+                  artist_path(artist) %></td>
         <td><%= link_to artist.name, artist_path(artist) %></td>
         <td><%= artist.date_started %></td>
         <td><%= artist.n_of_participants %></td>

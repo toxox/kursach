@@ -8,8 +8,9 @@
       <% if admin_signed_in? %>
         <th><%= model_class.human_attribute_name(:id) %></th>
       <% end %>
-      <th><%= model_class.human_attribute_name(:artist_id) %></th>
+      <th><%= model_class.human_attribute_name(:cover) %></th>
       <th><%= model_class.human_attribute_name(:album_title) %></th>
+      <th><%= model_class.human_attribute_name(:artist_id) %></th>
       <th><%= model_class.human_attribute_name(:genre_id) %></th>
       <th><%= model_class.human_attribute_name(:producer_id) %></th>
       <th><%= model_class.human_attribute_name(:date_released) %></th>
@@ -25,8 +26,10 @@
         <% if admin_signed_in? %>
           <td><%= link_to album.id, album_path(album) %></td>
         <% end %>
-        <td><%= album.artist.name %></td>
+        <td><%= link_to (image_tag album.cover.url(:thumb)),
+             album_path(album) %></td>
         <td><%= link_to album.album_title, album_path(album) %></td>
+        <td><%= album.artist.name %></td>
         <td><%= @album_genre%></td>
         <td><%= @album_producer %></td>
         <td><%= album.date_released %></td>
