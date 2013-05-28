@@ -11,7 +11,7 @@
   <dt><strong><%= model_class.human_attribute_name(:n_of_participants) %>:</strong></dt>
   <dd><%= @artist.n_of_participants %></dd>
 </dl>
-  <%= image_tag @artist.photo.url %>
+  <%= image_tag @artist.photo.url(:normal) %>
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               artists_path, :class => 'btn'  %>

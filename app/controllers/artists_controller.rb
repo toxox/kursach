@@ -60,6 +60,10 @@ class ArtistsController < ApplicationController
     end
   end
 
+  def delete_photo
+    @artist.photo.destroy
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_artist
