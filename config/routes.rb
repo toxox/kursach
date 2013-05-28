@@ -1,8 +1,9 @@
 Kursach::Application.routes.draw do
-  get "home/index"
+
   devise_for :admins, path: '' ,path_names: { sign_in: "admin", sign_out: "logout" }
   devise_for :users, path: '', path_names: { sign_in: "login",
    sign_out: "logout", sign_up: "register"}
+
   resources :songs
 
   resources :albums
