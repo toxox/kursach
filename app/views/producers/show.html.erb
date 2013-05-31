@@ -4,6 +4,10 @@
 </div>
 
 <dl class="dl-horizontal">
+  <% if admin_signed_in? %>
+    <dt><strong><%= model_class.human_attribute_name(:id) %>:</strong></dt>
+    <dd><%= @producer.id %></dd>
+  <% end %>
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @producer.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:year_started) %>:</strong></dt>

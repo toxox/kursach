@@ -4,8 +4,14 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:album_id) %>:</strong></dt>
-  <dd><%= @song.album_id %></dd>
+  <% if admin_signed_in? %>
+    <dt><strong><%= model_class.human_attribute_name(:id) %>:</strong></dt>
+    <dd><%= @song.id %></dd>
+    <dt><strong><%= model_class.human_attribute_name(:album_id) %>:</strong></dt>
+    <dd><%= @song.album_id %></dd>
+  <% end %>
+  <dt><strong><%= model_class.human_attribute_name(:album) %>:</strong></dt>
+  <dd><%= @song.album.album_title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:song_title) %>:</strong></dt>
   <dd><%= @song.song_title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:song_duration) %>:</strong></dt>
