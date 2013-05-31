@@ -30,10 +30,10 @@
              album_path(album) %></td>
         <td><%= link_to album.album_title, album_path(album) %></td>
         <td><%= album.artist.name %></td>
-        <td><%= @album_genre%></td>
-        <td><%= @album_producer %></td>
+        <td><%= Genre.find(album.genre_id).name%></td>
+        <td><%= Producer.find(album.producer_id).name %></td>
         <td><%= album.date_released %></td>
-        <td><%= @album_label %></td>
+        <td><%= Label.find(album.label_id).name %></td>
         <% if admin_signed_in? %>
           <td>
             <%= link_to t('.edit', :default => t("helpers.links.edit")),
