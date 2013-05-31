@@ -1,25 +1,48 @@
 <%- model_class = Album -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+  <h1><%=t '.title', :default => @album.album_title %> by
+    <%=t '.title', :default => (link_to @album.artist.name,
+     artist_path(@album.artist)) %> </h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:artist_id) %>:</strong></dt>
-  <dd><%= @album.artist_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:album_title) %>:</strong></dt>
-  <dd><%= @album.album_title %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:genre_id) %>:</strong></dt>
-  <dd><%= @album.genre_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:producer_id) %>:</strong></dt>
-  <dd><%= @album.producer_id %></dd>
+  <dd><%= image_tag @album.cover.url(:normal) %></dd>
+  <br>
+  <% if admin_signed_in? %>
+    <dt><strong><%= model_class.human_attribute_name(:artist_id) %>:</strong></dt>
+    <dd><%= @album.artist_id %></dd>
+    <dt><strong><%= model_class.human_attribute_name(:genre_id) %>:</strong></dt>
+    <dd><%= @album.producer_id %></dd>
+    <dt><strong><%= model_class.human_attribute_name(:producer_id) %>:</strong></dt>
+    <dd><%= @album.producer_id %></dd>
+    <dt><strong><%= model_class.human_attribute_name(:label_id) %>:</strong></dt>
+    <dd><%= @album.label_id %></dd>
+  <% end %>
   <dt><strong><%= model_class.human_attribute_name(:date_released) %>:</strong></dt>
   <dd><%= @album.date_released %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:genre_id) %>:</strong></dt>
+  <dd><%= @album_genre %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:producer_id) %>:</strong></dt>
+  <dd><%= @album_producer %></dd>
   <dt><strong><%= model_class.human_attribute_name(:label_id) %>:</strong></dt>
-  <dd><%= @album.label_id %></dd>
+  <dd><%= @album_label %></dd>
+  <% unless @album.songs.count.zero? %>
+    <dt><h3>Songs:</h3></dt>
+  <% end %>
+  <br>
+  <dd>
+    <table class="table narrow table-stripped">
+    <tbody>
+      <% @album.songs.each do |song| %>
+        <tr>
+          <td><%= song.song_title %></td>
+          <td><%= song.song_duration %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </dd>
 </dl>
-
-<%= image_tag @album.cover.url(:normal) %>
-
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

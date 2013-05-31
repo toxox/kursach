@@ -4,17 +4,13 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.all
-    @albums.each do |album|
-      @album_genre = Genre.find(album.genre_id).name
-      @album_producer = Producer.find(album.producer_id).name
-      @album_label = Label.find(album.label_id).name
-    end
+    get_views_variables
   end
 
   # GET /albums/1
   # GET /albums/1.json
   def show
+    get_views_variables
   end
 
   # GET /albums/new
@@ -76,5 +72,14 @@ class AlbumsController < ApplicationController
     def album_params
       params.require(:album).permit(:artist_id, :album_title, :genre_id,
         :producer_id, :date_released, :label_id, :cover)
+    end
+
+    def get_views_variables
+    @albums = Album.all
+    @albums.each do |album|
+      @album_genre = Genre.find(album.genre_id).name
+      @album_producer = Producer.find(album.producer_id).name
+      @album_label = Label.find(album.label_id).name
+    end
     end
 end

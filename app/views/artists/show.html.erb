@@ -1,17 +1,38 @@
 <%- model_class = Artist -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+  <h1><%=t '.title', :default => @artist.name %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @artist.name %></dd>
+  <dd><%= image_tag @artist.photo.url(:normal) %></dd>
+  <br>
+  <% if admin_signed_in? %>
+    <dt><strong><%= model_class.human_attribute_name(:id) %>:</strong></dt>
+    <dd><%= @artist.id %></dd>
+  <% end %>
   <dt><strong><%= model_class.human_attribute_name(:date_started) %>:</strong></dt>
   <dd><%= @artist.date_started %></dd>
   <dt><strong><%= model_class.human_attribute_name(:n_of_participants) %>:</strong></dt>
   <dd><%= @artist.n_of_participants %></dd>
+  <% unless @artist.albums.count.zero? %>
+    <dt><h3>Albums:</h3></dt>
+  <% end %>
+  <br>
+  <dd>
+    <table class="table narrow table-stripped">
+    <tbody>
+      <% @artist.albums.each do |album| %>
+        <tr>
+          <td><%= link_to (image_tag album.cover(:thumb)),
+           album_path(album) %></td>
+          <td><%= link_to album.album_title, album_path(album) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </dd>
+
 </dl>
-  <%= image_tag @artist.photo.url(:normal) %>
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               artists_path, :class => 'btn'  %>
