@@ -21,11 +21,11 @@
   <dt><strong><%= model_class.human_attribute_name(:date_released) %>:</strong></dt>
   <dd><%= @album.date_released %></dd>
   <dt><strong><%= model_class.human_attribute_name(:genre_id) %>:</strong></dt>
-  <dd><%= @album_genre %></dd>
+  <dd><%= put_name_or_not_available(Genre, @album.genre_id) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:producer_id) %>:</strong></dt>
-  <dd><%= @album_producer %></dd>
+  <dd><%= put_name_or_not_available(Producer, @album.producer_id) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:label_id) %>:</strong></dt>
-  <dd><%= @album_label %></dd>
+  <dd><%= put_name_or_not_available(Label, @album.label_id) %></dd>
   <% unless @album.songs.count.zero? %>
     <dt><h3>Songs:</h3></dt>
   <% end %>
