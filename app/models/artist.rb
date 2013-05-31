@@ -9,5 +9,7 @@ class Artist < ActiveRecord::Base
 
   validates :name, :date_started, :n_of_participants, presence: true
   validates :name, length: { maximum: 30 }
+  validates :n_of_participants, numericality: { only_integers: true,
+   greater_than: 0, less_than_or_equal_to: 5000 }
   validates_date :date_started
 end
