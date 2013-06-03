@@ -1,0 +1,16 @@
+<% unless @concert.artists.count.zero? %>
+  <dt><h3>Artists:</h3></dt>
+<% end %>
+<br>
+<dd>
+  <table class="table narrow table-stripped">
+    <tbody>
+      <% @concert.artists.each do |artist| %>
+        <tr>
+          <td><%= link_to (image_tag artist.photo.url(:thumb)), artist_path(artist) %></td>
+          <td><%= link_to artist.name, artist_path(artist) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</dd>

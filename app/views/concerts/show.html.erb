@@ -12,6 +12,7 @@
   <dd><%= @concert.location %></dd>
   <dt><strong><%= model_class.human_attribute_name(:date_held) %>:</strong></dt>
   <dd><%= @concert.date_held %></dd>
+  <%= render "concert_artists" %>
 </dl>
 
 

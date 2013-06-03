@@ -21,7 +21,7 @@
         <% if admin_signed_in? %>
           <td><%= link_to concert.id, concert_path(concert) %></td>
         <% end %>
-        <td><%= concert.location %></td>
+        <td><%= link_to concert.location, concert_path(concert) %></td>
         <td><%= concert.date_held %></td>
         <% if admin_signed_in? %>
           <td>
