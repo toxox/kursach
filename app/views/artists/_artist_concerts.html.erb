@@ -1,0 +1,16 @@
+<% unless @artist.concerts.count.zero? %>
+  <dt><h3>Concerts:</h3></dt>
+<% end %>
+<br>
+<dd>
+  <table class="table narrow table-stripped">
+    <tbody>
+      <% @artist.concerts.each do |concert| %>
+        <tr>
+          <td><%= link_to concert.location, concert_path(concert) %></td>
+          <td><%= concert.date_held %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</dd>

@@ -6,6 +6,7 @@
    end_year: Date.today.year, input_html: { class: 'chzn-select'} %>
   <%= f.input :n_of_participants %>
   <%= f.input :photo %>
+  <%= f.association :concerts, label_method: :location, input_html: { class: 'chzn-select' }%>
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

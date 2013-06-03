@@ -14,23 +14,8 @@
   <dd><%= @artist.date_started %></dd>
   <dt><strong><%= model_class.human_attribute_name(:n_of_participants) %>:</strong></dt>
   <dd><%= @artist.n_of_participants %></dd>
-  <% unless @artist.albums.count.zero? %>
-    <dt><h3>Albums:</h3></dt>
-  <% end %>
-  <br>
-  <dd>
-    <table class="table narrow table-stripped">
-    <tbody>
-      <% @artist.albums.each do |album| %>
-        <tr>
-          <td><%= link_to (image_tag album.cover(:thumb)),
-           album_path(album) %></td>
-          <td><%= link_to album.album_title, album_path(album) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  </dd>
+  <%= render 'artist_albums' %>
+  <%= render 'artist_concerts' %>
 
 </dl>
 
