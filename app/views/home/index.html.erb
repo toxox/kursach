@@ -2,13 +2,15 @@
   <h1>Welcome to Music DB</h1>
   <p>Here you can find all the information you need about music artists,
    albums, concerts and many more!</p>
-   <span>
-     <%= link_to "Sign Up", new_user_registration_path,
-     class: "btn btn-primary btn-large" %>
-     or
-     <%= link_to "Log In", new_user_session_path,
-     class: "btn btn-info btn-large" %>
-   </span>
+  <% unless user_signed_in? or admin_signed_in? %>
+    <span>
+      <%= link_to "Sign Up", new_user_registration_path,
+      class: "btn btn-primary btn-large" %>
+      or
+      <%= link_to "Log In", new_user_session_path,
+      class: "btn btn-info btn-large" %>
+    </span>
+  <% end %>
 </div>
 
 
