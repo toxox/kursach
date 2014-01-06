@@ -1,0 +1,16 @@
+<% unless @album.songs.count.zero? %>
+    <dt><h3>Songs:</h3></dt>
+<% end %>
+<br>
+<dd>
+  <table class="table narrow table-stripped">
+  <tbody>
+    <% @album.songs.each do |song| %>
+      <tr>
+        <td><%= link_to song.song_title, song_path(song) %></td>
+        <td><%= song.song_duration %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</dd>

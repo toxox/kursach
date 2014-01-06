@@ -26,22 +26,7 @@
   <dd><%= put_name_or_not_available(Producer, @album.producer_id) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:label_id) %>:</strong></dt>
   <dd><%= put_name_or_not_available(Label, @album.label_id) %></dd>
-  <% unless @album.songs.count.zero? %>
-    <dt><h3>Songs:</h3></dt>
-  <% end %>
-  <br>
-  <dd>
-    <table class="table narrow table-stripped">
-    <tbody>
-      <% @album.songs.each do |song| %>
-        <tr>
-          <td><%= song.song_title %></td>
-          <td><%= song.song_duration %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  </dd>
+  <%= render "album_songs" %>
 </dl>
 
 

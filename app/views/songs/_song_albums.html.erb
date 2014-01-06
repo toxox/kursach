@@ -1,0 +1,16 @@
+<% unless @song.albums.count.zero? %>
+  <dt><h3>Albums:</h3></dt>
+<% end %>
+<br>
+<dd>
+  <table class="table narrow table-stripped">
+    <tbody>
+      <% @song.albums.each do |album| %>
+        <tr>
+          <td><%= link_to (image_tag album.cover.url(:thumb)), album_path(album) %></td>
+          <td><%= link_to album.album_title, album_path(album) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</dd>

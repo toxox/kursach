@@ -22,8 +22,7 @@
         <% if admin_signed_in? %>
           <td><%= link_to song.id, song_path(song) %></td>
         <% end %>
-        <td><%= song.song_title %></td>
-        <td><%= song.album.album_title %></td>
+        <td><%= link_to song.song_title, song_path(song) %></td>
         <td><%= song.song_duration %></td>
         <% if admin_signed_in? %>
           <td>

@@ -3,7 +3,7 @@ class Album < ActiveRecord::Base
   has_one :genre
   has_one :producer
   has_one :label
-  has_many :songs, dependent: :destroy
+  has_and_belongs_to_many :songs
 
   has_attached_file :cover, styles: { normal: "300x300>", thumb: "50x50>" },
   default_url: ':style/missing.png'

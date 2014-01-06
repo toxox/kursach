@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130528150808) do
+ActiveRecord::Schema.define(version: 20140106153111) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(version: 20130528150808) do
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
   end
+
+  create_table "albums_songs", id: false, force: true do |t|
+    t.integer "album_id"
+    t.integer "song_id"
+  end
+
+  add_index "albums_songs", ["album_id", "song_id"], name: "index_albums_songs_on_album_id_and_song_id"
 
   create_table "artists", force: true do |t|
     t.string   "name"
@@ -98,7 +105,6 @@ ActiveRecord::Schema.define(version: 20130528150808) do
   end
 
   create_table "songs", force: true do |t|
-    t.integer  "album_id"
     t.string   "song_title"
     t.string   "song_duration"
     t.datetime "created_at"

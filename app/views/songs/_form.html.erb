@@ -1,8 +1,8 @@
 <%= simple_form_for @song, :html => { :class => 'form-horizontal' } do |f| %>
 
-  <%= f.association :album, collection: Album.order(:album_title),
-   required: true, label: "Album", label_method: :album_title,
-    input_html: { class: 'chzn-select'} %>
+
+  <%= f.association :albums, label_method: :album_title, input_html: { class: 'chzn-select' }%>
+
   <%= f.input :song_title %>
   <%= f.input :song_duration %>
 

@@ -69,6 +69,7 @@ class SongsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.require(:song).permit(:album_id, :song_title, :song_duration, :album)
+      params.require(:song).permit(:song_title, :song_duration,
+        :album, album_ids: [])
     end
 end
