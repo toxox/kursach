@@ -4,7 +4,11 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
-    @songs = Song.all
+    @search = Song.search do
+      fulltext params[:search]
+    end
+
+    @songs = @search.results
   end
 
   # GET /songs/1

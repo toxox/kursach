@@ -12,4 +12,8 @@ class Artist < ActiveRecord::Base
   validates :n_of_participants, numericality: { only_integers: true,
    greater_than: 0, less_than_or_equal_to: 5000 }
   validates_date :date_started
+
+  searchable do
+    text :name
+  end
 end

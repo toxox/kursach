@@ -6,4 +6,7 @@ class Song < ActiveRecord::Base
   validates :song_duration, format: { with: /\d+:\d\d/,
                message: "Please use format of m:ss" }
 
+  searchable do
+    text :song_title
+  end
 end

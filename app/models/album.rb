@@ -11,4 +11,8 @@ class Album < ActiveRecord::Base
   validates :artist_id, :album_title, :date_released, presence: true
   validates :album_title, length: { maximum: 50 }
   validates_date :date_released
+
+  searchable do
+    text :album_title
+  end
 end

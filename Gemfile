@@ -43,6 +43,7 @@ gem 'jbuilder', '~> 1.0.1'
 group :development do
   gem 'rails-erd'
   gem 'railroady'
+  gem 'sunspot_solr'
 end
 
 gem "therubyracer"
@@ -54,3 +55,5 @@ gem 'validates_timeliness'
 gem 'simple_form'
 
 gem 'devise', github: 'plataformatec/devise', branch: 'rails4'
+
+gem 'sunspot_rails'

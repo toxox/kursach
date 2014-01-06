@@ -4,7 +4,11 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.all
+    @search = Sunspot.search(Album) do
+      fulltext params[:search]
+    end
+
+    @albums = @search.results
   end
 
   # GET /albums/1

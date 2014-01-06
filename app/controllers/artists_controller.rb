@@ -3,7 +3,11 @@ class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.json
   def index
-    @artists = Artist.all
+    @search = Sunspot.search(Artist) do
+      fulltext params[:search]
+    end
+
+    @artists = @search.results
   end
 
   # GET /artists/1
